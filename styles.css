@@ -1,0 +1,100 @@
+/* ===== Color palette (from book cover + dusk house photo) ===== */
+:root {
+  --navy: #081b33;        /* deep navy, cover top / twilight sky */
+  --navy-light: #12294a;  /* slightly lighter navy for panels */
+  --steel: #4a86c0;       /* steel blue, cover bottom / pool water */
+  --orange: #e0883a;      /* burnt orange, cover edge / horizon glow */
+  --gold: #f2c14e;        /* warm window-light accent */
+  --cream: #f4f1ea;       /* off-white body text */
+}
+
+/* ===== Base typography and page ===== */
+body {
+  font-family: Georgia, "Palatino Linotype", Palatino, serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--cream);
+  background-color: var(--navy);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* ===== Headings ===== */
+h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--cream);
+  margin-bottom: 0.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 4px solid var(--orange);
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--steel);
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: var(--gold);
+}
+
+/* ===== Text and links ===== */
+p {
+  margin: 0 0 1.25rem 0;
+}
+
+a {
+  color: var(--steel);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--orange);
+}
+
+/* ===== Navigation (if you have a <nav>) ===== */
+nav {
+  background-color: var(--navy-light);
+  padding: 0.75rem 1rem;
+  margin-bottom: 2rem;
+  border-left: 5px solid var(--orange);
+}
+
+nav a {
+  margin-right: 1.25rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ===== Lists ===== */
+ul, ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+/* ===== Images and video ===== */
+img, iframe {
+  max-width: 100%;
+  border: 3px solid var(--steel);
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+/* ===== Footer ===== */
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--steel);
+  font-size: 0.9rem;
+  color: var(--steel);
+}
