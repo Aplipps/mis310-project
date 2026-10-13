@@ -1,65 +1,67 @@
-/* ===== Color palette (from book cover + dusk house photo) ===== */
+/* ===== Palette (from my "Alex Lipps" book style guide) ===== */
 :root {
-  --navy: #081b33;        /* deep navy, cover top / twilight sky */
-  --navy-light: #12294a;  /* slightly lighter navy for panels */
-  --steel: #4a86c0;       /* steel blue, cover bottom / pool water */
-  --orange: #e0883a;      /* burnt orange, cover edge / horizon glow */
-  --gold: #f2c14e;        /* warm window-light accent */
-  --cream: #f4f1ea;       /* off-white body text */
+  --navy: #091b35;
+  --navy-light: #12294a;
+  --steel: #488bc6;
+  --indigo: #2e2a71;
+  --orange: #f58934;
+  --cream: #f4f1ea;
 }
 
-/* ===== Base typography and page ===== */
+/* ===== Base typography ===== */
 body {
-  font-family: Georgia, "Palatino Linotype", Palatino, serif;
+  font-family: Bahnschrift, "DIN Alternate", "Arial Narrow", Arial, sans-serif;
   font-size: 1.1rem;
   line-height: 1.7;
   color: var(--cream);
   background-color: var(--navy);
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
 }
 
-/* ===== Headings ===== */
-h1 {
-  font-size: 3rem;
+h1, h2, h3 {
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
   font-weight: 400;
+}
+
+h1 {
+  font-size: 3.2rem;
   line-height: 1.1;
-  color: var(--cream);
   margin-bottom: 0.25rem;
   padding-bottom: 0.5rem;
   border-bottom: 4px solid var(--orange);
 }
 
 h2 {
-  font-size: 1.8rem;
-  font-weight: 400;
+  font-size: 1.9rem;
   color: var(--steel);
   margin-top: 2.5rem;
-  margin-bottom: 0.5rem;
 }
 
 h3 {
   font-size: 1.3rem;
-  color: var(--gold);
+  color: var(--orange);
 }
 
-/* ===== Text and links ===== */
 p {
   margin: 0 0 1.25rem 0;
 }
 
 a {
   color: var(--steel);
-  text-decoration: underline;
 }
 
 a:hover {
   color: var(--orange);
 }
 
-/* ===== Navigation (if you have a <nav>) ===== */
+/* ===== Navigation (Flexbox) ===== */
 nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: flex-start;
   background-color: var(--navy-light);
   padding: 0.75rem 1rem;
   margin-bottom: 2rem;
@@ -67,34 +69,101 @@ nav {
 }
 
 nav a {
-  margin-right: 1.25rem;
   text-decoration: none;
   font-weight: bold;
 }
 
-/* ===== Lists ===== */
-ul, ol {
-  padding-left: 1.5rem;
-  margin-bottom: 1.25rem;
+/* ===== Book feature: cover beside text (Flexbox) ===== */
+.book-feature {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
 }
 
-li {
-  margin-bottom: 0.4rem;
+.book-feature img {
+  flex: 0 0 280px;
+  width: 280px;
 }
 
-/* ===== Images and video ===== */
+.book-feature .book-text {
+  flex: 1;
+}
+
+/* ===== Vision-board page gallery (Flexbox) ===== */
+.book-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 2rem 0;
+  padding: 0;
+}
+
+.book-gallery figure {
+  flex: 0 1 calc(33.333% - 1rem);
+  margin: 0;
+}
+
+.book-gallery img {
+  width: 100%;
+  display: block;
+  margin: 0;
+}
+
+.book-gallery a:hover img {
+  border-color: var(--orange);
+}
+
+/* ===== Images, video, lists, footer ===== */
 img, iframe {
   max-width: 100%;
   border: 3px solid var(--steel);
   border-radius: 6px;
-  margin: 1rem 0;
 }
 
-/* ===== Footer ===== */
+ul, ol {
+  padding-left: 1.5rem;
+}
+
 footer {
   margin-top: 3rem;
   padding-top: 1rem;
-  border-top: 2px solid var(--steel);
+  border-top: 2px solid var(--indigo);
   font-size: 0.9rem;
   color: var(--steel);
+}
+
+/* ===== Responsive: narrow screens =====
+   ~700px is where three book pages in a row get too small to read */
+@media (max-width: 700px) {
+  body {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .book-feature {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .book-feature img {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .book-gallery figure {
+    flex: 1 1 100%;
+    max-width: 420px;
+  }
 }
